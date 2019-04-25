@@ -6,7 +6,7 @@
 /*   By: abinois <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 21:18:16 by abinois           #+#    #+#             */
-/*   Updated: 2019/04/12 12:12:35 by abinois          ###   ########.fr       */
+/*   Updated: 2019/04/25 16:44:58 by abinois          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ char	*ft_strnew(size_t size)
 	str = NULL;
 	if (!(str = (char*)malloc(sizeof(*str) * (size + 1))))
 		return (NULL);
-	ft_bzero(str, size + 1);
+	while ((size + 1) > 0)
+		str[size--] = '\0';
 	return (str);
 }
