@@ -6,19 +6,29 @@
 /*   By: abinois <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 17:46:33 by abinois           #+#    #+#             */
-/*   Updated: 2019/04/12 12:09:24 by abinois          ###   ########.fr       */
+/*   Updated: 2019/04/26 09:50:34 by abinois          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 char	*ft_strjoin(const char *s1, const char *s2)
 {
 	char	*new;
+	size_t	len;
+	size_t	i;
 
-	if (!s1 || !s2 || !(new = ft_strnew(ft_strlen(s1) + ft_strlen(s2))))
+	if (!s1 || !s2)
 		return (NULL);
-	new = ft_strcpy(new, s1);
-	new = ft_strcat(new, s2);
+	len = ft_strlen(s1) + ft_strlen(s2) + 1;
+	if (!(new = (char*)malloc(sizeof(*new) * len)))
+		return (NULL);
+	i = 0;
+	while (*s1)
+		new[i++] = *s1++;
+	while (*s2)
+		new[i++] = *s2++;
+	new[i] = '\0';
 	return (new);
 }
