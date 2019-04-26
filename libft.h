@@ -6,7 +6,7 @@
 /*   By: abinois <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 17:24:14 by abinois           #+#    #+#             */
-/*   Updated: 2019/04/23 14:37:42 by abinois          ###   ########.fr       */
+/*   Updated: 2019/04/26 17:28:04 by abinois          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void			*ft_memchr(const void *s, int c, size_t n);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
 void			*ft_memalloc(size_t size);
 void			ft_memdel(void **ap);
-
 void			ft_bzero(void *s, size_t n);
 size_t			ft_strlen(const char *s);
 char			*ft_strdup(const char *s1);
@@ -55,6 +54,7 @@ int				ft_toupper(int c);
 int				ft_tolower(int c);
 void			ft_putchar(char c);
 void			ft_putstr(const char *s);
+void			ft_putstrclr(const char *s, const char *color_input);
 void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(const char *s, int fd);
 void			ft_putnbr(int n);
@@ -86,5 +86,6 @@ t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 size_t			ft_lst_size(t_list *alst);
 t_list			**ft_lst_rev(t_list **alst);
 int				ft_pow(int nb, int po);
+int				ft_sqrt(int nb);
 
 #endif
