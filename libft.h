@@ -6,7 +6,7 @@
 /*   By: abinois <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 17:24:14 by abinois           #+#    #+#             */
-/*   Updated: 2019/04/26 17:28:04 by abinois          ###   ########.fr       */
+/*   Updated: 2019/05/02 13:31:14 by abinois          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # include <string.h>
+# define BUFF_SIZE_GNL 666
 
 typedef struct	s_list
 {
@@ -87,5 +88,6 @@ size_t			ft_lst_size(t_list *alst);
 t_list			**ft_lst_rev(t_list **alst);
 int				ft_pow(int nb, int po);
 int				ft_sqrt(int nb);
+int				ft_get_next_line(const int fd, char **line);
 
 #endif
