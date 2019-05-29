@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pow.c                                           :+:      :+:    :+:   */
+/*   ft_po.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abinois <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/12 14:08:20 by abinois           #+#    #+#             */
-/*   Updated: 2019/04/16 08:49:41 by abinois          ###   ########.fr       */
+/*   Updated: 2019/05/29 17:51:47 by abinois          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_pow(int nb, int po)
+unsigned long long	ft_po(unsigned long long nb, int po)
 {
-	int		res;
+	unsigned long long	res;
 
 	res = 1;
 	if (!po)

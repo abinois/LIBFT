@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_str_up.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abinois <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/03 23:38:17 by abinois           #+#    #+#             */
-/*   Updated: 2019/05/10 17:30:35 by edillenb         ###   ########.fr       */
+/*   Created: 2019/05/14 11:28:53 by abinois           #+#    #+#             */
+/*   Updated: 2019/05/14 11:54:41 by abinois          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "libft.h"
+#include <string.h>
 
-void	ft_putstr(const char *s)
+char	*ft_str_up(char *s)
 {
-	if (!s)
-		return ;
-	write(1, s, ft_strlen(s));
+	size_t		i;
+
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] >= 'a' && s[i] <= 'z')
+			s[i] -= 32;
+		i++;
+	}
+	return (s);
 }

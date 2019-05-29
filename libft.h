@@ -6,7 +6,7 @@
 /*   By: abinois <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 17:24:14 by abinois           #+#    #+#             */
-/*   Updated: 2019/05/09 14:10:44 by abinois          ###   ########.fr       */
+/*   Updated: 2019/05/29 17:59:26 by abinois          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 # define LIBFT_H
 
 # include <string.h>
-# define BUFF_SIZE_GNL 666
+# define BUFF_SIZE_GNL 545
+# define ULL unsigned long long
 
 typedef struct	s_list
 {
@@ -86,10 +87,18 @@ void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 size_t			ft_lst_size(t_list *alst);
 t_list			**ft_lst_rev(t_list **alst);
-int				ft_pow(int nb, int po);
+ULL				ft_po(ULL nb, int po);
 int				ft_sqrt(int nb);
 int				ft_get_next_line(const int fd, char **line);
+void			ft_display_file(char *filename);
 void			ft_putnstr(const char *s, size_t n);
-void			ft_fili();
+void			ft_fili(const char *file, size_t line);
+char			*ft_llutoa(unsigned long long nbr);
+char			*ft_lltoa(long long nbr);
+char			*ft_octatoa(unsigned long long nbr);
+char			*ft_hexatoa(unsigned long long nbr);
+char			*ft_str_up(char *s);
+char			*ft_strjoinfr(const char *s1, const char *s2, char option);
+char			*ft_str_add(char *s1, char *s2);
 
 #endif
