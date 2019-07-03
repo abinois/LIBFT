@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_up.c                                        :+:      :+:    :+:   */
+/*   ft_free_stropt.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abinois <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/14 11:28:53 by abinois           #+#    #+#             */
-/*   Updated: 2019/06/10 14:58:22 by edillenb         ###   ########.fr       */
+/*   Created: 2019/04/08 17:46:33 by abinois           #+#    #+#             */
+/*   Updated: 2019/04/26 12:13:37 by abinois          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
+#include <stdlib.h>
 
-char	*ft_str_up(char *s)
+void	*ft_free_stropt(char **s1, char **s2, char option)
 {
-	size_t		i;
-
-	i = 0;
-	if (!s)
-		return (NULL);
-	while (s[i])
+	if (option == 1)
+		ft_memdel((void**)s1);
+	if (option == 2)
+		ft_memdel((void**)s2);
+	if (option == 3)
 	{
-		if (s[i] >= 'a' && s[i] <= 'z')
-			s[i] -= 32;
-		i++;
+		ft_memdel((void**)s1);
+		ft_memdel((void**)s2);
 	}
-	return (s);
+	return (NULL);
 }
