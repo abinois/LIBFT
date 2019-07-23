@@ -6,7 +6,7 @@
 /*   By: abinois <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 17:24:14 by abinois           #+#    #+#             */
-/*   Updated: 2019/06/05 17:19:26 by edillenb         ###   ########.fr       */
+/*   Updated: 2019/07/08 14:35:46 by abinois          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define LIBFT_H
 
 # include <string.h>
-# define BUFF_SIZE_GNL 545
+# define BUFF_SIZE_GNL 1024
 # define ULL	unsigned long long
 
 typedef struct	s_list
@@ -89,7 +89,7 @@ size_t			ft_lst_size(t_list *alst);
 t_list			**ft_lst_rev(t_list **alst);
 ULL				ft_po(ULL nb, int po);
 int				ft_sqrt(int nb);
-int				ft_get_next_line(const int fd, char **line);
+int				ft_get_next_line(const int fd, char **line, int o);
 void			ft_display_file(char *filename);
 void			ft_putnstr(const char *s, size_t n);
 void			ft_fili(const char *file, size_t line);

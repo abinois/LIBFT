@@ -6,7 +6,7 @@
 /*   By: abinois <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 13:06:58 by abinois           #+#    #+#             */
-/*   Updated: 2019/05/31 18:38:46 by edillenb         ###   ########.fr       */
+/*   Updated: 2019/07/08 14:35:14 by abinois          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int		send_line(char **b, char **b2, char **line)
 	return (1);
 }
 
-int				ft_get_next_line(const int fd, char **line)
+int				ft_get_next_line(const int fd, char **line, int o)
 {
 	static char		*b[OPEN_MAX];
 	char			*b2;
@@ -35,11 +35,12 @@ int				ft_get_next_line(const int fd, char **line)
 	int				r;
 
 	if ((fd < 0) || (fd > OPEN_MAX) || BUFF_SIZE_GNL < 1 || !line
-		|| (!b[fd] && !(b[fd] = ft_strnew(0))))
+		|| (o == 0 && !b[fd] && !(b[fd] = ft_strnew(0))))
 		return (-1);
 	r = 0;
 	b2 = NULL;
-	while (!(ft_strchr(b[fd], '\n')) && (r = read(fd, tmp, BUFF_SIZE_GNL)))
+	while (o == 0 && !(ft_strchr(b[fd], '\n'))
+		&& (r = read(fd, tmp, BUFF_SIZE_GNL)))
 	{
 		tmp[r] = '\0';
 		if (r == -1 || !(b2 = ft_strjoin(b[fd], tmp)))
@@ -47,9 +48,9 @@ int				ft_get_next_line(const int fd, char **line)
 		free(b[fd]);
 		b[fd] = b2;
 	}
-	if (*b[fd] && (b2 = ft_strchr(b[fd], '\n')))
+	if (o == 0 && *b[fd] && (b2 = ft_strchr(b[fd], '\n')))
 		return (send_line(&(b[fd]), &b2, line));
-	else if (*b[fd] && (b2 = ft_strchr(b[fd], '\0')))
+	else if (o == 0 && *b[fd] && (b2 = ft_strchr(b[fd], '\0')))
 		return (send_line(&(b[fd]), &b2, line));
 	ft_memdel((void**)&(b[fd]));
 	return (0);

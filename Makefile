@@ -6,7 +6,7 @@
 #    By: abinois <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/03 14:51:13 by abinois           #+#    #+#              #
-#    Updated: 2019/06/05 17:19:05 by edillenb         ###   ########.fr        #
+#    Updated: 2019/07/04 12:59:27 by abinois          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ VIOLET = \033[35m
 ROUGE = \033[31m
 JAUNE = \033[33m
 NOCOLOR = \033[0m
+BLINK = \033[5m
 
 all: $(NAME)
  
@@ -40,20 +41,20 @@ $(NAME): $(OBJ) Makefile libft.h
 	$(CC) $(CFLAGS) -c $(SRC)
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
-	@echo "$(VERT)~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~> OK !$(NOCOLOR)"
+	@echo "$(VERT)----------------------> $(BLINK)OK !$(NOCOLOR)"
 
 clean:
 	@echo "$(VIOLET)SUPPR DES .O . . . . . . . . . . . . . . .$(ROUGE)"
 	rm -f $(OBJ)
-	@echo "$(VERT)~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~> OK !$(NOCOLOR)"
+	@echo "$(VERT)----------------------> $(BLINK)OK !$(NOCOLOR)"
 
 fclean: clean
 	@echo "$(VIOLET)SUPPR DE LA LIB . . . . . . . . . . . . . .$(ROUGE)"
 	rm -f $(NAME)
-	@echo "$(VERT)~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~> OK !$(NOCOLOR)"
+	@echo "$(VERT)----------------------> $(BLINK)OK !$(NOCOLOR)"
 
 re: fclean all
 	@echo "$(VIOLET)RELINK . . . . . . . . . . . . . . . . . . . ."
-	@echo "$(VERT)~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~> OK !"
+	@echo "$(VERT)----------------------> $(BLINK)OK !$(NOCOLOR)"
 
 .PHONY: all clean fclean re
