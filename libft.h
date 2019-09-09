@@ -6,7 +6,7 @@
 /*   By: abinois <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 17:24:14 by abinois           #+#    #+#             */
-/*   Updated: 2019/07/08 14:35:46 by abinois          ###   ########.fr       */
+/*   Updated: 2019/08/24 15:22:06 by ltimsit-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,19 @@
 # include <string.h>
 # define BUFF_SIZE_GNL 1024
 # define ULL	unsigned long long
+
+typedef struct		s_gcl
+{
+	void			*ptr;
+	struct s_gcl	*next;
+}					t_gcl;
+
+typedef struct		s_gc
+{
+	t_gcl			*list;
+	t_gcl			*head;
+	int				size;
+}					t_gc;
 
 typedef struct	s_list
 {
@@ -31,7 +44,7 @@ void			*ft_memmove(void *dst, const void *src, size_t len);
 void			*ft_memchr(const void *s, int c, size_t n);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
 void			*ft_memalloc(size_t size);
-void			ft_memdel(void **ap);
+int				ft_memdel(void **ap, int return_value);
 void			ft_bzero(void *s, size_t n);
 size_t			ft_strlen(const char *s);
 char			*ft_strdup(const char *s1);
@@ -89,6 +102,7 @@ size_t			ft_lst_size(t_list *alst);
 t_list			**ft_lst_rev(t_list **alst);
 ULL				ft_po(ULL nb, int po);
 int				ft_sqrt(int nb);
+int				ft_sqrtup(int nb);
 int				ft_get_next_line(const int fd, char **line, int o);
 void			ft_display_file(char *filename);
 void			ft_putnstr(const char *s, size_t n);
@@ -102,5 +116,11 @@ char			*ft_strjoinfr(char **s1, char **s2, char option);
 char			*ft_str_add(char **s1, char **s2, char option);
 void			*ft_free_stropt(char **s1, char **s2, char option);
 char			*ft_bitoa(void *input, size_t size);
+int				ft_abs(int n);
+void			*ft_alloc_gc(int size, int size_type, t_gc *gc);
+int				ft_free_gc(t_gc *gc);
+int				ft_add_to_gc(void *ptr, t_gc *gc);
+int				ft_skip_char(char *line, char c, int i);
+int				ft_skip_nochar(char *line, char c, int i);
 
 #endif

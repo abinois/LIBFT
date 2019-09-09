@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdel.c                                        :+:      :+:    :+:   */
+/*   ft_free_gc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abinois <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: ltimsit- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/05 22:06:00 by abinois           #+#    #+#             */
-/*   Updated: 2019/07/28 13:36:55 by ltimsit-         ###   ########.fr       */
+/*   Created: 2019/08/19 12:37:59 by ltimsit-          #+#    #+#             */
+/*   Updated: 2019/08/26 19:32:23 by ltimsit-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-void	ft_strdel(char **as)
+int	ft_free_gc(t_gc *gc)
 {
-	if (!as || !*as)
-		return ;
-	ft_memdel((void**)as, 0);
+	t_gcl	*tmp;
+
+	tmp = gc->head;
+	while (gc->head)
+	{
+		gc->head = gc->head->next;
+		if (tmp->ptr)
+			free(tmp->ptr);
+		free(tmp);
+		tmp = gc->head;
+	}
+	gc->head = NULL;
+	gc->list = NULL;
+	return (0);
 }
