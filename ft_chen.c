@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_chen.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abinois <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/04 17:39:52 by abinois           #+#    #+#             */
-/*   Updated: 2019/09/13 08:28:07 by abinois          ###   ########.fr       */
+/*   Created: 2019/09/12 09:30:02 by abinois           #+#    #+#             */
+/*   Updated: 2019/09/12 09:31:33 by abinois          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-char	*ft_strchr(const char *s, int c)
+void			ft_chen(char *h, int size)
 {
+	char	endian[size];
 	int		i;
 
 	i = -1;
-	if (c < 0)
-		return (NULL);
-	while (s[++i])
-		if (s[i] == (char)c)
-			return ((char*)s + i);
-	if (s[i] == (char)c)
-		return ((char*)s + i);
-	return (NULL);
+	while (++i < size)
+		endian[i] = h[size - 1 - i];
+	i = -1;
+	while (++i < size)
+		h[i] = endian[i];
 }

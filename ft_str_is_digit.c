@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_gc.c                                       :+:      :+:    :+:   */
+/*   ft_str_is_digit.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ltimsit- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abinois <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/19 12:37:59 by ltimsit-          #+#    #+#             */
-/*   Updated: 2019/09/13 08:39:26 by abinois          ###   ########.fr       */
+/*   Created: 2019/09/16 11:05:44 by abinois           #+#    #+#             */
+/*   Updated: 2019/09/16 12:36:40 by abinois          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_free_gc(t_gc *gc)
+int		ft_str_is_digit(char *s)
 {
-	t_gcl	*tmp;
+	int		i;
 
-	tmp = gc->head;
-	while (gc->head)
-	{
-		gc->head = gc->head->next;
-		if (tmp->ptr)
-			ft_memdel((void**)&(tmp->ptr), 0);
-		ft_memdel((void**)&tmp, 0);
-		tmp = gc->head;
-	}
-	gc->head = NULL;
-	gc->list = NULL;
-	return (0);
+	i = 0;
+	if (!s || (*s != '-' && *s != '+' && (*s < '0' || *s > '9')))
+		return (0);
+	while (s[++i])
+		if (s[i] < '0' || s[i] > '9')
+			return (0);
+	return (1);
 }
