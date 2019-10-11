@@ -6,7 +6,7 @@
 /*   By: abinois <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/10 20:15:33 by abinois           #+#    #+#             */
-/*   Updated: 2019/04/12 11:52:00 by abinois          ###   ########.fr       */
+/*   Updated: 2019/10/11 12:51:24 by abinois          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,9 @@
 void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
 	if (lst && f)
-	{
 		while (lst)
 		{
 			f(lst);
 			lst = lst->next;
 		}
-	}
 }
